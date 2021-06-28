@@ -4,8 +4,9 @@ Diễn đàn được chia thành 2 phần chính là quản trị(admin) và ph
 dưới đây là phần quản trị cho admin:
 Admin sẽ quản lý người dùng, quản lý các nhóm quyền, các chức năng cho từng nhóm quyền, xem và viết bài để tạo nội dung cho trang web
 Admin sẽ xem được các bình luận của bài viết, biết được các báo xấu của bài viết. Nếu một quá nhiều báo xấu admin có thể xóa bài viết đó đi  
-ngoài ra hệ thống sẽ tạo các báo cáo cho admin, một số báo cáo mẫu là số lượng bài viết trong từng thangs, số lượng bình luận trong tháng và số lượng người dùng đăng ký mới trong tháng.
-Mã nguồn phần phần người dùng  `https://a30289Huynh@dev.azure.com/a30289Huynh/TLUForum/_git/TLUForum
+ngoài ra hệ thống sẽ tạo các báo cáo cho admin, một số báo cáo mẫu là số lượng bài viết trong từng thangs, số lượng bình luận trong tháng và số lượng người dùng đăng ký mới trong tháng.  
+Mã nguồn phần người dùng(Client)  
+`https://a30289Huynh@dev.azure.com/a30289Huynh/TLUForum/_git/TLUForum
 `
 --- 
 Template của giao diện 
