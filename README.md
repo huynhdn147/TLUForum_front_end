@@ -8,7 +8,7 @@ ngoài ra hệ thống sẽ tạo các báo cáo cho admin, một số báo cáo
 Mã nguồn phần phần người dùng  `https://a30289Huynh@dev.azure.com/a30289Huynh/TLUForum/_git/TLUForum
 `
 --- 
-Template 
+Template của giao diện 
 ## SB Admin rewritten in Angular9 and Bootstrap 4
 
 Simple Dashboard Admin App built using Angular 9 and Bootstrap 4
