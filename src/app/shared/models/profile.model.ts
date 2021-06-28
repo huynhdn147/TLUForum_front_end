@@ -1,7 +1,7 @@
-export class Profile{
+export class Profile {
     sub: string;
-    userName:string;
-    role:string;
-    email:string;
-    permission:string[];
-}
+    userName?: string;
+    role?: string;
+    email?: string;
+    permissions?: string;
+    }

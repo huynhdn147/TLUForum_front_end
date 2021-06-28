@@ -1,10 +1,10 @@
-<div [@routerTransition] class="login-page">
+<div class="login-page" [@routerTransition]>
     <div class="row justify-content-md-center">
         <div class="col-md-4">
-            <img class="user-avatar" src="assets/images/logo.png" width="150px" />
-            <h1>Đăng nhập</h1>
+            <img src="/assets/images/logo.png" width="150px" class="user-avatar" />
+            <h1>TLU Forum</h1>
             <form role="form">
-                <a class="btn rounded-btn" (click)="login()"> {{ 'Log in' | translate }}</a>
+                <a class="btn rounded-btn" (click)="login()">{{ 'Log in' | translate }}</a>
             </form>
         </div>
     </div>

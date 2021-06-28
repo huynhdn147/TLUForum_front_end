@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
-import { AuthService } from 'src/app/shared/services';
+import { AuthService } from '@app/shared/services';
 
 @Component({
     selector: 'app-header',
@@ -11,14 +11,23 @@ import { AuthService } from 'src/app/shared/services';
 })
 export class HeaderComponent implements OnInit {
     public pushRightClass: string;
-    userName:string;
+
+    userName: string;
     isAuthenticated: boolean;
-    subCription: Subscription;
-    constructor(private translate: TranslateService, public router: Router, public authService: AuthService) {
-        this.subCription = this.authService.authNavStatus$.subscribe(status => this.isAuthenticated = status);
+    subscription: Subscription;
+
+    constructor(private translate: TranslateService, public router: Router,
+        private authService: AuthService) {
+
+        this.subscription = this.authService.authNavStatus$.subscribe(status => this.isAuthenticated = status);
         this.userName = this.authService.name;
-        this.router.events.subscribe((val) => {
-            if (val instanceof NavigationEnd && window.innerWidth <= 992 && this.isToggled()) {
+
+        this.router.events.subscribe(val => {
+            if (
+                val instanceof NavigationEnd &&
+                window.innerWidth <= 992 &&
+                this.isToggled()
+            ) {
                 this.toggleSidebar();
             }
         });

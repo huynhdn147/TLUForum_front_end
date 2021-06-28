@@ -1,8 +1,9 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
+import { Component, Output, EventEmitter, OnInit } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { AuthService, UserService } from 'src/app/shared/services';
-import {Function} from 'src/app/shared/models'
+import { UsersService, AuthService } from '@app/shared/services';
+import { Function } from '@app/shared/models';
+
 @Component({
     selector: 'app-sidebar',
     templateUrl: './sidebar.component.html',
@@ -14,23 +15,27 @@ export class SidebarComponent implements OnInit {
     showMenu: string;
     pushRightClass: string;
     public functions: Function[];
+
     @Output() collapsedEvent = new EventEmitter<boolean>();
 
-    constructor(private translate: TranslateService, public router: Router
-        ,private userService:UserService, private authService:AuthService) {
+    constructor(private translate: TranslateService,
+        public router: Router, private userService: UsersService,
+        private authService: AuthService) {
         this.loadMenu();
-        this.router.events.subscribe((val) => {
-            if (val instanceof NavigationEnd && window.innerWidth <= 992 && this.isToggled()) {
+        this.router.events.subscribe(val => {
+            if (
+                val instanceof NavigationEnd &&
+                window.innerWidth <= 992 &&
+                this.isToggled()
+            ) {
                 this.toggleSidebar();
             }
         });
     }
-    loadMenu(){
-        var profile=this.authService.profile;
-        console.log(profile);
+    loadMenu() {
+        const profile = this.authService.profile;
         this.userService.getMenuByUser(profile.sub).subscribe((response: Function[]) => {
             this.functions = response;
-            console.log(response);
         });
     }
     ngOnInit() {
@@ -39,6 +44,7 @@ export class SidebarComponent implements OnInit {
         this.showMenu = '';
         this.pushRightClass = 'push-right';
     }
+
 
     eventCalled() {
         this.isActive = !this.isActive;

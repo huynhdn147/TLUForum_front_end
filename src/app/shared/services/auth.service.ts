@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { UserManager, UserManagerSettings, User } from 'oidc-client';
 import { BehaviorSubject } from 'rxjs';
-import { Profile } from '../models';
 import { BaseService } from './base.service';
+import { Profile } from '../models';
 
 
 @Injectable({
@@ -46,13 +46,14 @@ export class AuthService extends BaseService {
     }
     return null;
   }
- get profile():Profile{
-    return this.user !=null?this.user.profile:null;
- }
+
   get name(): string {
     return this.user != null ? this.user.profile.name : '';
   }
 
+  get profile(): Profile {
+    return this.user != null ? this.user.profile : null;
+  }
   async signout() {
     await this.manager.signoutRedirect();
   }
@@ -60,6 +61,7 @@ export class AuthService extends BaseService {
 
 export function getClientSettings(): UserManagerSettings {
   return {
+      
     authority: 'https://localhost:5000',
     client_id: 'angular_admin',
     redirect_uri: 'http://localhost:4200/auth-callback',
